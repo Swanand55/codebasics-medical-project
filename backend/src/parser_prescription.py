@@ -1,7 +1,7 @@
 import re
 
 from backend.src.parser_generic import MedicalDocParser
-import backend.src.extractor as extractor
+
 
 class PrescriptionParser(MedicalDocParser):
     def __init__(self,text):
@@ -31,8 +31,3 @@ class PrescriptionParser(MedicalDocParser):
             if len(matches) > 0:
                 return matches[0].strip()
 
-
-if __name__=='__main__':
-    document_text = extractor.extract('../resources/prescription/pre_1.pdf', 'prescription')
-    prescription_details=PrescriptionParser(document_text)
-    print(prescription_details.parse()) 

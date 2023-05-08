@@ -1,7 +1,8 @@
 import re
 
 from backend.src.parser_generic import MedicalDocParser
-import backend.src.extractor as extractor
+
+
 class PatientDetailParser(MedicalDocParser):
     def __init__(self,text):
         MedicalDocParser.__init__(self,text)
@@ -39,8 +40,3 @@ class PatientDetailParser(MedicalDocParser):
                 if val != None:
                     res.append(val)
             return res[0]
-
-if __name__=='__main__':
-    document_text=extractor.extract('../resources/patient_details/pd_2 .pdf','patient_details')
-    patient_details=PatientDetailParser(document_text)
-    print(patient_details.parse())
